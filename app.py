@@ -52,13 +52,12 @@ def webhook():
 def processRequest(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    keyword = parameters.get("keyword") 
-    
-    res = makeWebhookResult(keyword)
+    test = parameters.get("keyword")    
+    res = makeWebhookResult(test)
     return res
 
-def makeWebhookResult(keyword):
-    output_speech = "Test " + keyword + has been initiated"
+def makeWebhookResult(test):
+    output_speech = "Test " + test + has been initiated"
     return {
         "speech": output_speech,
         "displayText": output_speech,
