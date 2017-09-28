@@ -53,7 +53,32 @@ def webhook():
 def processRequest(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    test = parameters.get("keyword")    
+    test = parameters.get("keyword")
+    
+    user="ai.bot.chat@gmail.com"
+    recipient="arvind.shrivastava@accenture.com""
+    subject = "Hello"
+    body = "Hello. This is my email to you"
+    gmail_user = "ai.bot.chat"
+    gmail_pwd = "Accenture@2017"
+    FROM = user
+    TO = recipient if type(recipient) is list else [recipient]
+    SUBJECT = subject
+    TEXT = body
+
+    # Prepare actual message
+    message = """From: %s\nTo: %s\nSubject: %s\n\n%s
+    """ % (FROM, ", ".join(TO), SUBJECT, TEXT)
+    try:
+        server_ssl = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+        server_ssl.ehlo()
+        server_ssl.login(gmail_user, gmail_pwd)  
+        server_ssl.sendmail(FROM, TO, message)
+        server_ssl.close()
+        print('successfully sent the mail')
+    except Exception as ex:
+        print(ex)
+        
     res = makeWebhookResult(test)
     return res
 
