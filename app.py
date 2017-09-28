@@ -57,7 +57,7 @@ def processRequest(req):
     return res
 
 def makeWebhookResult(test):
-    output_speech = "Test " + test + has been initiated"
+    output_speech = "Test " + test + " has been initiated"
     return {
         "speech": output_speech,
         "displayText": output_speech,
