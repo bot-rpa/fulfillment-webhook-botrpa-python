@@ -52,44 +52,17 @@ def webhook():
 def processRequest(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    duration = parameters.get("duration") 
-    duration = duration.replace("2018", "2017")
-    servicetype = parameters.get("servicetype") 
-    data = ""
-    res = makeWebhookResult(duration,servicetype)
+    keyword = parameters.get("keyword") 
+    
+    res = makeWebhookResult(keyword)
     return res
 
-def makeWebhookResult(duration,servicetype):
-    if (duration == "2017-08-01/2017-08-31"):
-        usage = "100"
-    elif (duration == "2017-07-01/2017-07-31"):
-        usage = "110"
-    elif (duration == "2017-06-01/2017-06-30"):
-        usage = "120"
-    elif (duration == "2017-05-01/2017-05-31"):
-        usage = "150"
-    elif (duration == "2017-04-01/2017-04-30"):
-        usage = "145"
-    elif (duration == "2017-03-01/2017-03-31"):
-        usage = "169"
-    elif (duration == "2017-02-01/2017-02-28"):
-        usage = "140"
-    elif (duration == "2017-01-01/2017-01-31"):
-        usage = "130"
-    elif (duration == "2016-01-01/2016-12-31"):
-        usage = "1350"
-    elif (duration == "2017-09-18/2017-09-24"):
-        usage = "30"
-    elif (duration == "2017-09-11/2017-09-17"):
-        usage = "20"
-    else:
-        usage = "200"
-    
-    output_speech = "Your " + servicetype + " usage for the duration " + duration + " is " + usage + " units which costs " + str(float(usage) * 0.45) + " pounds. Any thing else I can do for you."
+def makeWebhookResult(keyword):
+    output_speech = "Test " + keyword + has been initiated"
     return {
         "speech": output_speech,
         "displayText": output_speech,
-        "source": "apiai-weather-webhook-sample"
+        "source": "apiai-rpabot-webhook-sample"
     }
 
 
