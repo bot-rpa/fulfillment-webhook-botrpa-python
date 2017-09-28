@@ -53,12 +53,12 @@ def webhook():
 def processRequest(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    test = parameters.get("keyword")
+    keyword = parameters.get("keyword")
     
     user="ai.bot.chat@gmail.com"
     recipient="arvind.shrivastava@accenture.com"
-    subject = "Hello"
-    body = "Hello. This is my email to you"
+    subject = "Regression LPS - " + keyword
+    body = "Please test " + keyword
     gmail_user = "ai.bot.chat"
     gmail_pwd = "Accenture@2017"
     FROM = user
@@ -79,11 +79,11 @@ def processRequest(req):
     except Exception as ex:
         print(ex)
         
-    res = makeWebhookResult(test)
+    res = makeWebhookResult(keyword)
     return res
 
-def makeWebhookResult(test):
-    output_speech = "Test " + test + " has been initiated"
+def makeWebhookResult(keyword):
+    output_speech = "Test " + keyword + " has been initiated"
     return {
         "speech": output_speech,
         "displayText": output_speech,
