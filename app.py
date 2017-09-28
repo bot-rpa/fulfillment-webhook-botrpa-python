@@ -56,7 +56,7 @@ def processRequest(req):
     test = parameters.get("keyword")
     
     user="ai.bot.chat@gmail.com"
-    recipient="arvind.shrivastava@accenture.com""
+    recipient="arvind.shrivastava@accenture.com"
     subject = "Hello"
     body = "Hello. This is my email to you"
     gmail_user = "ai.bot.chat"
