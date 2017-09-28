@@ -24,6 +24,7 @@ from urllib.error import HTTPError
 
 import json
 import os
+import smtplib
 
 from flask import Flask
 from flask import request
