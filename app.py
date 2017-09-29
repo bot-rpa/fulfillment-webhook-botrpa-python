@@ -56,7 +56,7 @@ def processRequest(req):
     keyword = parameters.get("keyword")
     
     user="ai.bot.chat@gmail.com"
-    recipient="arvind.shrivastava@accenture.com"
+    recipient="n.vincent.santiago@accenture.com"
     subject = "Regression LPS - " + keyword
     body = "Please test " + keyword
     gmail_user = "ai.bot.chat"
